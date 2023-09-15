@@ -3,10 +3,9 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import AllCart from './AllCart';
-function Home() {
+function Home({ addCart2 }) {
     const [cart, setCart] = useState([]);
     const [addItem, setAddItem] = useState(0);
-    const [add, setAdd] = useState(false);
     // const [addMessage, setAddMessage] = useState('Add into cart');
     const downloadCart = async () => {
         const response = await axios.get('https://fakestoreapi.com/products')
@@ -39,6 +38,27 @@ function Home() {
     //     //     item={item}
     //     // />
     // })
+    const addCart = (cartItem, add) => {
+        if (add === true) {
+            console.log('remove');
+            if (addItem > 0){
+                setAddItem(addItem - 1);
+            }
+            
+            console.log('value of addItem is', addItem);
+            addCart2(addItem-1);
+
+
+        } 
+        
+        else {
+            setAddItem(addItem + 1);
+            console.log(cartItem);
+            console.log('value of addItem is by in else', addItem);
+            addCart2(addItem+1);
+
+        }
+    }
     return (
         <div className=' px-[30px] mt-[20px] grid grid-cols-5 gap-[20px]'>{
             // i am do one mistake jiski vajahh se 1 night jyada lagi AllCart componenet ko {} me kar diya
@@ -49,6 +69,7 @@ function Home() {
                     rate={item.rating.rate}
                     category={item.category}
                     item={item}
+                    addInCart={(cartItem, add) => addCart(cartItem, add)}
                 />
             )
         }

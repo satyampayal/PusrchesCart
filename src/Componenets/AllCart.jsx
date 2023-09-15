@@ -1,12 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
-function AllCart({ image,category,rate,item }) {
+function AllCart({ image,category,rate,item,addInCart}) {
     const [add, setAdd] = useState(false);
-    //console.log(item)
-
     const addHandler=(item)=>{
-        setAdd(!add)
-
+        setAdd(!add);
+        if(add){
+        addInCart(item,add);
+        }
+        else{
+        addInCart(item,add);
+        }
     }
     return (
         <div className='border-[1px] border-gray-300 rounded-[5px] flex flex-col justify-center  gap-[5px] ' >
