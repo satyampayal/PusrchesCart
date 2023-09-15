@@ -60,7 +60,7 @@ function Home({ addCart2 }) {
         }
     }
     return (
-        <div className=' px-[30px] mt-[20px] grid grid-cols-5 gap-[20px]'>{
+        <div className=' px-[30px] mt-[110px] grid grid-cols-5 gap-[20px] bg-slate-100'>{
             // i am do one mistake jiski vajahh se 1 night jyada lagi AllCart componenet ko {} me kar diya
             cart.map((item) =>
                 <AllCart

@@ -12,7 +12,7 @@ function AllCart({ image,category,rate,item,addInCart}) {
         }
     }
     return (
-        <div className='border-[1px] border-gray-300 rounded-[5px] flex flex-col justify-center  gap-[5px] ' >
+        <div className='border-[1px] border-gray-300 bg-white rounded-[8px] flex flex-col justify-center  gap-[5px] hover:scale-[102%] hover:rounded-none z-[0] ' >
             <img className='w-[50%] h-[40%] mx-auto' src={image} alt="image of products" />
             <h1 className='text-[24px] italic  mx-auto'>{category}</h1>
             <h1 className='bg-green-600 text-white rounded-[5px] text-center w-[80%] mx-auto'>Rate {rate}</h1>
